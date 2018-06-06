@@ -52,7 +52,8 @@ public:
     bool hasOffline() override { return false; }
 
     void setCommunication();
-    int m_partyId;
+
+    int getID();
 
 
 protected:
@@ -63,7 +64,7 @@ protected:
     io_service  m_ioService;
     vector<shared_ptr<ProtocolPartyData>> m_channels;
     vector<byte> m_data;
-
+    int m_partyId;
     virtual void createData() = 0;
 };
 

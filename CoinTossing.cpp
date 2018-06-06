@@ -20,6 +20,7 @@ CoinTossing::CoinTossing(int argc, char* argv []):
 
 }
 
+int CoinTossing::getID() { return m_partyId; }
 
 void CoinTossing::setCommunication()
 {
@@ -101,7 +102,7 @@ void CoinTossingParty::run()
             cout << "DATA SENT: " << endl;
             for (int i = 0; i < m_d; i++)
             {
-                cout << "Party " << m_partyId << " receives " << (int)data[idx][i] << " from party " << idx + 1 << endl;
+                cout << "Party " << this->getID() << " receives " << (int)data[idx][i] << " from party " << idx + 1 << endl;
 
             }
         }
