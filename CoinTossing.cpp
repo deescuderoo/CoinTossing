@@ -94,13 +94,18 @@ void CoinTossingParty::broadcastExchange(vector<data256>& buffer)
 
 void CoinTossingParty::run()
 {
-
-    iotape[m_partyId] = std::move(data256(string("Hello world from party ") + to_string(m_partyId)));
+    // Generate random string
+    PrgFromOpenSSLAES* prg = new PrgFromOpenSSLAES();
+    SecretKey secretKey = prg->generateKey(256);
+    prg->setKey(secretKey);
+    byte * p = prg->getPRGBytesEX(sizeof(data256));
+    memcpy(iotape[m_partyId].bytes, p, sizeof(data256));
+//    iotape[m_partyId] = std::move(data256(string("Hello world from party ") + to_string(m_partyId)));
 
     broadcastExchange(iotape);
 
-    cout << "Contents of party " << m_partyId << ": " << endl;
-    for (int i = 0; i < m_numberOfParties; i++){
-    cout << iotape[i].bytes << ", ";
-    }
+//    cout << "Contents of party " << m_partyId << ": " << endl;
+//    for (int i = 0; i < m_numberOfParties; i++){
+//    cout << iotape[i].bytes << ", ";
+//    }
 }
