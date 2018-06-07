@@ -16,12 +16,15 @@
 #include <libscapi/include/infra/Measurement.hpp>
 #include <libscapi/include/cryptoInfra/SecurityLevel.hpp>
 #include <libscapi/include/cryptoInfra/Protocol.hpp>
+#include <libscapi/include/primitives/Prg.hpp>
+
 
 using namespace std;
 using namespace boost::asio;
 using random_bytes_engine = std::independent_bits_engine<
         std::default_random_engine, CHAR_BIT, unsigned char>;
 
+// Datatype for the buffers
 union data256
 {
     data256(string s){

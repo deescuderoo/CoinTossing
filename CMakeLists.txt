@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 11)
 set("${CMAKE_CXX_FLAGS} -g")
 
 
-INCLUDE_DIRECTORIES($ENV{HOME} $ENV{HOME}/libscapi/install/include/)
+INCLUDE_DIRECTORIES($ENV{HOME} $ENV{HOME}/libscapi/install/include/ $ENV{HOME}/libscapi/include/)
 
 set(SOURCE_FILES main.cpp CoinTossing.cpp)
 

@@ -1,0 +1,16 @@
+# IDE settings
+
+.idea/
+
+# Exectubles/other
+CoinTossing
+CoinTossing.cbp
+*.json
+
+# CMake
+
+/CMakeFiles/
+/cmake-build-debug/
+Makefile
+CMakeCache.txt
+cmake_install.cmake
